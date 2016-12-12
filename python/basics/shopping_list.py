@@ -1,5 +1,5 @@
 #def shopping_list():
-
+#modified to write and read from file
 def show_help():
 	print("""
 	Type 'DONE' when you are done
@@ -8,13 +8,19 @@ def show_help():
 
 def show_list():
 	print("Here is your list:")
-	for item in list_items:
-		print(item)
+	with open("sdata.txt") as file:
+		#for item in list_items:
+		for item in file:
+			print(item)
 
-def add_item():
-	list_items.append(item)
+#def add_item(item):
+#	list_items.append(item)
 
-list_items =[]
+def add_item(item):
+	with open("sdata.txt","a") as file:
+		file.write(item+'\n')
+
+#list_items =[]
 
 print("Enter the Shopping List: ")
 print("Enter DONE if no more item")
